@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\FrontendController;
-
+use App\Http\Controllers\Backend\BackendController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,3 +28,8 @@ require __DIR__.'/auth.php';
 Route::get('/',[FrontendController::class,'index'])->name('front.index');
 
 Route::get('/single-post',[FrontendController::class,'single'])->name('front.single');
+
+
+Route::group(['prefix'=>'dashboard'], function(){
+    Route::get('/',[BackendController::class,'index'])->name('back.index');
+});
