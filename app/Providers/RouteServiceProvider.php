@@ -10,20 +10,22 @@ use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
-    /**
-     * The path to the "home" route for your application.
+   /**
+     * This namespace is applied to your controller routes.
      *
-     * Typically, users are redirected here after authentication.
+     * In addition, it is set as the URL generator's root namespace.
      *
      * @var string
      */
-    public const HOME = '/dashboard';
+    protected $namespace = 'App\Http\Controllers';
 
     /**
-     * Define your route model bindings, pattern filters, and other route configuration.
+     * The path to the "home" route for your application.
      *
-     * @return void
+     * @var string
      */
+    public const HOME = '/admin/dashboard';
+    
     public function boot()
     {
         $this->configureRateLimiting();
